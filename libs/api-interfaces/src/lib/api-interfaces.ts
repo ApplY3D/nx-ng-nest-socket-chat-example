@@ -8,6 +8,7 @@ export type PayloadType<T> = T extends { payload: unknown }
   : unknown;
 
 export const NAMESPACES = { CHAT: 'chat' };
+export const SOCKET_PORT = 80;
 
 // [from]_$[emit type]
 export const client_$message = new SocketMessage<string>('client_$message');

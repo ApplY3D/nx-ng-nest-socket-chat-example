@@ -12,6 +12,8 @@ import {
   PayloadType,
   client_$message,
   server_$message,
+  NAMESPACES,
+  SOCKET_PORT,
 } from '@socket-chat/api-interfaces';
 import { Server, Socket } from 'socket.io';
 
