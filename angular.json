@@ -70,6 +70,19 @@
       "sourceRoot": "apps/chat/src",
       "prefix": "socket-chat",
       "architect": {
+        "serve-with-api": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx run api:serve"
+              },
+              {
+                "command": "nx run chat:serve"
+              }
+            ]
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
