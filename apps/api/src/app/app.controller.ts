@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { Message } from '@socket-chat/api-interfaces';
 
 import { AppService } from './app.service';
 
@@ -7,7 +8,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('hello')
-  getData(): { message: string } {
+  getData(): Message {
     return this.appService.getData();
   }
 }

@@ -1,3 +1,7 @@
+export interface Message {
+  message: string;
+}
+
 class SocketMessage<T> {
   public payload!: T;
   constructor(public action: string) {}

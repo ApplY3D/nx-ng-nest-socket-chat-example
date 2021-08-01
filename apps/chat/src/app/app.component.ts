@@ -8,6 +8,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { SocketService } from './socket.service';
 import { Subscription } from 'rxjs';
+import { Message } from '@socket-chat/api-interfaces';
 
 @Component({
   selector: 'socket-chat-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   messages: string[] = [];
 
-  hello$ = this.http.get<{ message: string }>('/api/hello');
+  hello$ = this.http.get<Message>('/api/hello');
 
   onSendMessage() {
     const message = this.input?.nativeElement.value;
