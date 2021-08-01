@@ -1,9 +1,9 @@
-<div style="text-align: center">
-  <h1>Welcome to chat!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Extensible Build Framework"
-  />
+<div>Rest message: {{ hello$ | async | json }}</div>
+<div>
+  <input type="text" #messageInput />
+  <button type="button" (click)="onSendMessage()">Send message</button>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+<div>Socket io chat:</div>
+<ul *ngIf="messages">
+  <li *ngFor="let message of messages">{{ message }}</li>
+</ul>
