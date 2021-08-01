@@ -12,9 +12,17 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "NWM0MmFiZmItZTBjNy00YzEwLWFmMDgtZTM3M2EwYmJiYmZjfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
@@ -38,7 +46,9 @@
     },
     "chat-e2e": {
       "tags": [],
-      "implicitDependencies": ["chat"]
+      "implicitDependencies": [
+        "chat"
+      ]
     }
   }
 }
