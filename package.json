@@ -43,6 +43,7 @@
     "@nestjs/platform-socket.io": "^8.0.5",
     "@nestjs/websockets": "^8.0.5",
     "@nrwl/angular": "12.6.3",
+    "ngx-socket-io": "^4.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
