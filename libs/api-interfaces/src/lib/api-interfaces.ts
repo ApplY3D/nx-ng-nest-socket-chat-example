@@ -1,11 +1,13 @@
 class SocketMessage<T> {
-  public payload: T;
+  public payload!: T;
   constructor(public action: string) {}
 }
 
 export type PayloadType<T> = T extends { payload: unknown }
   ? T['payload']
   : unknown;
+
+export const NAMESPACES = { CHAT: 'chat' };
 
 // [from]_$[emit type]
 export const client_$message = new SocketMessage<string>('client_$message');
