@@ -11,5 +11,9 @@ export const NAMESPACES = { CHAT: 'chat' };
 export const SOCKET_PORT = 80;
 
 // [from]_$[emit type]
-export const client_$message = new SocketMessage<string>('client_$message');
-export const server_$message = new SocketMessage<string>('MESSAGE_FROM_CLIENT');
+export const client_$send_message = new SocketMessage<string>(
+  'client_$send_message'
+);
+export const server_$send_message = new SocketMessage<string>(
+  'server_$send_message'
+);

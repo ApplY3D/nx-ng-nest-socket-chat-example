@@ -10,8 +10,8 @@ import {
 } from '@nestjs/websockets';
 import {
   PayloadType,
-  client_$message,
-  server_$message,
+  client_$send_message,
+  server_$send_message,
   NAMESPACES,
   SOCKET_PORT,
 } from '@socket-chat/api-interfaces';
@@ -27,13 +27,13 @@ export class ChatGateway
   @WebSocketServer()
   server: Server;
 
-  @SubscribeMessage(client_$message.action)
+  @SubscribeMessage(client_$send_message.action)
   handleMessage(
     @ConnectedSocket() client: Socket,
-    @MessageBody() message: PayloadType<typeof client_$message>
+    @MessageBody() message: PayloadType<typeof client_$send_message>
   ) {
     // emit to all people, include sender
-    this.server.emit(server_$message.action, message);
+    this.server.emit(server_$send_message.action, message);
   }
 
   afterInit(server: Server) {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  client_$message,
   PayloadType,
-  server_$message,
+  client_$send_message,
+  server_$send_message,
 } from '@socket-chat/api-interfaces';
 import { ChatSocket } from './socket/chat-socket';
 
@@ -11,11 +11,11 @@ export class SocketService {
   constructor(private chatSocket: ChatSocket) {}
 
   sendMessage(msg: string) {
-    this.chatSocket.emit(client_$message.action, msg);
+    this.chatSocket.emit(client_$send_message.action, msg);
   }
   getMessage() {
-    return this.chatSocket.fromEvent<PayloadType<typeof server_$message>>(
-      server_$message.action
+    return this.chatSocket.fromEvent<PayloadType<typeof server_$send_message>>(
+      server_$send_message.action
     );
   }
 }
