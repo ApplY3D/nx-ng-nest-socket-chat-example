@@ -1,9 +1,14 @@
-<div>Rest message: {{ hello$ | async | json }}</div>
+<div *ngIf="helloMessage$ | async | json as helloMessage; else restWaiting">
+  Rest message: {{ helloMessage }}
+</div>
+<ng-template #restWaiting>
+  <div>Rest message on the way</div>
+</ng-template>
 <div>
   <input type="text" #messageInput />
   <button type="button" (click)="onSendMessage()">Send message</button>
 </div>
 <div>Socket io chat:</div>
-<ul *ngIf="messages">
+<ul *ngIf="messages$ | async as messages">
   <li *ngFor="let message of messages">{{ message }}</li>
 </ul>
